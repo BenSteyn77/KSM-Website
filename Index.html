@@ -1,899 +1,504 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keyword Social Media — Digital Growth Partners</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --navy: #0B1523;
-  --navy-mid: #142035;
-  --navy-light: #1E3050;
-  --gold: #C8A96E;
-  --gold-light: #E2C99A;
-  --gold-pale: #F5EDD8;
-  --off-white: #F8F6F2;
-  --mid-gray: #8A8F9A;
-  --light-gray: #E8E6E1;
-  --white: #FFFFFF;
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'DM Sans', sans-serif;
-}
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--font-body);
-  background: var(--off-white);
-  color: var(--navy);
-  font-size: 16px;
-  line-height: 1.7;
-  font-weight: 300;
-  overflow-x: hidden;
-}
-
-/* ── PAGES ── */
-.page { display: none; }
-.page.active { display: block; }
-
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.25rem 4rem;
-  background: rgba(11,21,35,0.97);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(200,169,110,0.15);
-}
-.nav-logo {
-  font-family: var(--font-display);
-  font-size: 1.5rem; font-weight: 500;
-  color: var(--white); letter-spacing: 0.02em;
-  cursor: pointer; text-decoration: none;
-}
-.nav-logo span { color: var(--gold); }
-.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-.nav-links a {
-  color: rgba(255,255,255,0.6);
-  text-decoration: none; font-size: 0.82rem;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  transition: color 0.2s; cursor: pointer;
-  background: none; border: none; font-family: var(--font-body);
-}
-.nav-links a:hover, .nav-links a.active { color: var(--gold); }
-.nav-cta {
-  background: var(--gold) !important; color: var(--navy) !important;
-  padding: 0.55rem 1.4rem; border-radius: 2px; font-weight: 500 !important;
-}
-.nav-cta:hover { background: var(--gold-light) !important; }
-
-/* ── SHARED ── */
-.section-inner { max-width: 1200px; margin: 0 auto; }
-section { padding: 7rem 4rem; }
-.section-tag {
-  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1rem;
-  display: flex; align-items: center; gap: 0.75rem;
-}
-.section-tag::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
-.section-title {
-  font-family: var(--font-display); font-size: clamp(2.2rem,4vw,3.2rem);
-  font-weight: 300; line-height: 1.15; color: var(--navy); margin-bottom: 1.25rem;
-}
-.section-title em { font-style: italic; color: var(--gold); }
-.section-lead { color: var(--mid-gray); font-size: 1.05rem; max-width: 560px; line-height: 1.8; margin-bottom: 3rem; }
-.gold-line { width: 48px; height: 2px; background: var(--gold); margin-bottom: 2rem; }
-.btn-primary {
-  background: var(--gold); color: var(--navy);
-  padding: 0.9rem 2.2rem; text-decoration: none; font-size: 0.82rem;
-  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
-  border-radius: 2px; transition: background 0.2s, transform 0.15s; display: inline-block;
-  cursor: pointer; border: none; font-family: var(--font-body);
-}
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-.btn-outline {
-  border: 1px solid var(--gold); color: var(--gold);
-  padding: 0.85rem 2rem; text-decoration: none; font-size: 0.82rem;
-  letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px;
-  transition: background 0.2s, color 0.2s; display: inline-block; cursor: pointer;
-  background: none; font-family: var(--font-body);
-}
-.btn-outline:hover { background: var(--gold); color: var(--navy); }
-.btn-ghost-light {
-  border: 1px solid rgba(200,169,110,0.4); color: var(--gold);
-  padding: 0.85rem 2rem; font-size: 0.82rem; letter-spacing: 0.1em;
-  text-transform: uppercase; border-radius: 2px; display: inline-block;
-  cursor: pointer; background: none; font-family: var(--font-body);
-  transition: background 0.2s;
-}
-.btn-ghost-light:hover { background: rgba(200,169,110,0.1); }
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh; background: var(--navy);
-  display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden;
-}
-.hero-grid-bg {
-  position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(200,169,110,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200,169,110,0.06) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-.hero-content {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 10rem 4rem 6rem; position: relative; z-index: 2;
-}
-.hero-eyebrow {
-  font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1.5rem;
-  display: flex; align-items: center; gap: 0.75rem;
-}
-.hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
-.hero h1 {
-  font-family: var(--font-display); font-size: clamp(3rem,5vw,4.5rem);
-  font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 1.5rem;
-}
-.hero h1 em { font-style: italic; color: var(--gold); }
-.hero-sub { color: rgba(255,255,255,0.55); font-size: 1.05rem; max-width: 440px; margin-bottom: 2.5rem; line-height: 1.8; }
-.hero-actions { display: flex; gap: 1rem; align-items: center; }
-.btn-ghost-nav {
-  color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px;
-  transition: color 0.2s, border-color 0.2s; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: var(--font-body);
-}
-.btn-ghost-nav:hover { color: var(--gold); border-bottom-color: var(--gold); }
-.hero-visual {
-  display: flex; align-items: center; justify-content: center;
-  padding: 10rem 4rem 6rem 2rem; position: relative; z-index: 2;
-}
-.hero-stat-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-  border: 1px solid rgba(200,169,110,0.2); background: rgba(200,169,110,0.2);
-  width: 100%; max-width: 420px;
-}
-.hero-stat { background: rgba(20,32,53,0.92); padding: 2.5rem 2rem; text-align: center; }
-.hero-stat-num { font-family: var(--font-display); font-size: 3.2rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
-.hero-stat-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); line-height: 1.5; }
-
-/* ── ABOUT ── */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-.about-numbers { display: flex; gap: 3rem; margin-top: 2.5rem; }
-.about-num-val { font-family: var(--font-display); font-size: 3rem; font-weight: 300; line-height: 1; }
-.about-num-val span { color: var(--gold); }
-.about-num-label { font-size: 0.75rem; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.3rem; }
-.testimonial-card {
-  background: var(--navy); padding: 2.5rem;
-  border-left: 3px solid var(--gold); position: relative;
-}
-.testimonial-card::before {
-  content: '\201C'; font-family: var(--font-display); font-size: 5rem;
-  color: var(--gold); opacity: 0.25; position: absolute; top: 0.75rem; left: 1.25rem; line-height: 1;
-}
-.testimonial-text { color: rgba(255,255,255,0.7); font-size: 0.92rem; line-height: 1.9; margin-bottom: 1.25rem; }
-.testimonial-author { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
-
-/* ── SERVICE SECTION ── */
-.service-grid {
-  display: grid; grid-template-columns: repeat(2,1fr); gap: 1px;
-  background: var(--light-gray); border: 1px solid var(--light-gray);
-}
-.service-card { background: var(--white); padding: 2.5rem; transition: background 0.2s; }
-.service-card:hover { background: var(--gold-pale); }
-.service-icon {
-  width: 42px; height: 42px; border: 1px solid var(--gold);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 1.5rem; color: var(--gold); font-size: 1.1rem;
-}
-.service-card h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--navy); margin-bottom: 0.6rem; }
-.service-card p { font-size: 0.88rem; color: var(--mid-gray); line-height: 1.85; }
-
-/* dark service grid (Meta) */
-.service-grid-dark {
-  display: grid; grid-template-columns: repeat(2,1fr); gap: 1px;
-  background: rgba(200,169,110,0.12); border: 1px solid rgba(200,169,110,0.12);
-}
-.service-card-dark { background: rgba(14,26,46,0.85); padding: 2.5rem; transition: background 0.2s; }
-.service-card-dark:hover { background: rgba(20,36,60,0.95); }
-.service-card-dark h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--white); margin-bottom: 0.6rem; }
-.service-card-dark p { font-size: 0.88rem; color: rgba(255,255,255,0.42); line-height: 1.85; }
-
-/* ── PRICING CARDS ── */
-.pricing-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--light-gray); border: 1px solid var(--light-gray); }
-.pricing-card { background: var(--white); padding: 2rem 1.75rem; display: flex; flex-direction: column; }
-.pricing-card.featured { background: var(--navy); }
-.pricing-tier {
-  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 0.75rem;
-}
-.pricing-name { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: var(--navy); margin-bottom: 0.25rem; }
-.pricing-card.featured .pricing-name { color: var(--white); }
-.pricing-price { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: var(--gold); line-height: 1; margin: 1rem 0; }
-.pricing-price span { font-size: 1rem; color: var(--mid-gray); font-family: var(--font-body); }
-.pricing-card.featured .pricing-price span { color: rgba(255,255,255,0.4); }
-.pricing-divider { height: 1px; background: var(--light-gray); margin: 1.25rem 0; }
-.pricing-card.featured .pricing-divider { background: rgba(255,255,255,0.08); }
-.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; margin-bottom: 2rem; }
-.pricing-features li { font-size: 0.83rem; color: var(--mid-gray); padding-left: 1.1rem; position: relative; line-height: 1.5; }
-.pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.5); }
-.pricing-features li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.7rem; top: 0.1rem; }
-.pricing-note { font-size: 0.75rem; color: var(--mid-gray); line-height: 1.6; margin-bottom: 1.5rem; font-style: italic; }
-.pricing-card.featured .pricing-note { color: rgba(255,255,255,0.3); }
-.pricing-badge {
-  background: var(--gold); color: var(--navy);
-  font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
-  padding: 0.3rem 0.75rem; border-radius: 1px; display: inline-block; margin-bottom: 0.75rem; font-weight: 500;
-}
-.saving-banner {
-  background: var(--gold-pale); border-left: 3px solid var(--gold);
-  padding: 1.25rem 1.75rem; margin-bottom: 3rem;
-}
-.saving-banner p { font-size: 0.88rem; color: var(--navy); line-height: 1.7; }
-.saving-banner strong { font-weight: 500; color: var(--navy); }
-
-/* ── PPC PACKAGES ── */
-.ppc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--light-gray); border: 1px solid var(--light-gray); }
-.ppc-card { background: var(--white); padding: 3rem; }
-.ppc-card h3 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; color: var(--navy); margin-bottom: 1rem; }
-.ppc-card .price { font-family: var(--font-display); font-size: 2.4rem; font-weight: 300; color: var(--gold); margin-bottom: 0.25rem; }
-.ppc-card .price-note { font-size: 0.78rem; color: var(--mid-gray); margin-bottom: 1.5rem; line-height: 1.7; }
-.ppc-features { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-.ppc-features li { font-size: 0.85rem; color: var(--mid-gray); padding-left: 1.1rem; position: relative; line-height: 1.6; }
-.ppc-features li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.7rem; top: 0.1rem; }
-.detail-section { margin-top: 4rem; }
-.detail-section h3 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; color: var(--navy); margin-bottom: 1.5rem; }
-.detail-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 2rem; }
-.detail-list li { font-size: 0.87rem; color: var(--mid-gray); padding-left: 1.2rem; position: relative; line-height: 1.6; }
-.detail-list li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; top: 0.05rem; }
-
-/* ── FAQ ── */
-.faq-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; }
-.faq-item { border-bottom: 1px solid var(--light-gray); }
-.faq-question {
-  padding: 1.4rem 0; cursor: pointer;
-  display: flex; justify-content: space-between; align-items: center;
-  font-size: 0.93rem; font-weight: 400; color: var(--navy); user-select: none; gap: 1rem;
-}
-.faq-question:hover { color: var(--gold); }
-.faq-icon { font-size: 1.2rem; color: var(--gold); flex-shrink: 0; transition: transform 0.25s; }
-.faq-item.open .faq-icon { transform: rotate(45deg); }
-.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-.faq-item.open .faq-answer { max-height: 300px; }
-.faq-answer-inner { padding-bottom: 1.25rem; color: var(--mid-gray); font-size: 0.88rem; line-height: 1.9; }
-
-/* ── CONTACT ── */
-.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
-.contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
-.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-.form-group label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
-.form-group input, .form-group textarea, .form-group select {
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(200,169,110,0.2);
-  color: var(--white); padding: 0.85rem 1rem; font-family: var(--font-body);
-  font-size: 0.9rem; font-weight: 300; border-radius: 2px; outline: none;
-  transition: border-color 0.2s; resize: none;
-}
-.form-group select option { background: var(--navy-mid); }
-.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.18); }
-.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
-.contact-submit {
-  background: var(--gold); color: var(--navy); border: none;
-  padding: 1rem 2.5rem; font-family: var(--font-body); font-size: 0.82rem;
-  font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-  border-radius: 2px; cursor: pointer; margin-top: 0.5rem; transition: background 0.2s; align-self: flex-start;
-}
-.contact-submit:hover { background: var(--gold-light); }
-.contact-info-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 0.3rem; }
-.contact-info-val { color: rgba(255,255,255,0.7); font-size: 0.93rem; margin-bottom: 1.75rem; }
-.contact-divider { width: 32px; height: 1px; background: rgba(200,169,110,0.3); margin: 1.75rem 0; }
-
-/* ── FOOTER ── */
-footer {
-  background: #07101C; padding: 2.5rem 4rem;
-  display: flex; align-items: center; justify-content: space-between;
-  border-top: 1px solid rgba(200,169,110,0.1);
-}
-.footer-logo { font-family: var(--font-display); font-size: 1.2rem; color: rgba(255,255,255,0.45); }
-.footer-logo span { color: var(--gold); }
-.footer-links { display: flex; gap: 2rem; }
-.footer-links a { font-size: 0.75rem; color: rgba(255,255,255,0.3); text-decoration: none; letter-spacing: 0.06em; cursor: pointer; }
-.footer-links a:hover { color: var(--gold); }
-.footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); letter-spacing: 0.05em; }
-
-/* ── PAGE HERO (inner pages) ── */
-.page-hero {
-  background: var(--navy); padding: 10rem 4rem 5rem;
-  position: relative; overflow: hidden;
-}
-.page-hero-grid {
-  position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(200,169,110,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200,169,110,0.05) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-.page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
-.page-hero h1 { font-family: var(--font-display); font-size: clamp(2.8rem,5vw,4rem); font-weight: 300; color: var(--white); line-height: 1.1; }
-.page-hero h1 em { font-style: italic; color: var(--gold); }
-.page-hero p { color: rgba(255,255,255,0.5); font-size: 1rem; max-width: 560px; margin-top: 1.25rem; line-height: 1.8; }
-
-/* ── BREADCRUMB ── */
-.breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
-.breadcrumb span { font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
-.breadcrumb span:hover { color: var(--gold); }
-.breadcrumb .sep { color: rgba(255,255,255,0.15); font-size: 0.7rem; }
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate { animation: fadeUp 0.65s ease both; }
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.25s; }
-.delay-3 { animation-delay: 0.4s; }
-.delay-4 { animation-delay: 0.55s; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyword Social Media | Digital Marketing & Websites for South African Businesses</title>
+  <meta name="description" content="Keyword helps established South African small and medium businesses improve online visibility, generate better leads, manage social media, run paid ads, and build conversion-focused websites." />
+  <meta name="keywords" content="digital marketing South Africa, social media management, Google Ads management, Meta Ads, website development South Africa, small business marketing" />
+  <meta property="og:title" content="Keyword Social Media | Digital Marketing & Websites" />
+  <meta property="og:description" content="A premium, performance-focused digital partner for established South African businesses that need better marketing, better websites, and clearer growth systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/keyword-logo.svg" />
+  <link rel="icon" href="assets/images/keyword-logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
+  <header class="site-header" id="top">
+    <nav class="nav">
+      <a href="#home" class="brand" data-page-link="home" aria-label="Keyword Social Media home">
+        <img src="assets/images/keyword-logo.svg" alt="Keyword Social Media logo" />
+        <span>Keyword</span>
+      </a>
 
-<!-- ═══════════ NAV ═══════════ -->
-<nav>
-  <span class="nav-logo" onclick="showPage('home')">Key<span>word</span></span>
-  <ul class="nav-links">
-    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
-    <li><a onclick="showPage('social')" id="nav-social">Social Media</a></li>
-    <li><a onclick="showPage('ppc')" id="nav-ppc">Paid Marketing</a></li>
-    <li><a onclick="showPage('home'); setTimeout(()=>scrollTo('contact'),50)" id="nav-faq">FAQ</a></li>
-    <li><a onclick="showPage('home'); setTimeout(()=>scrollTo('contact'),50)" class="nav-cta">Get Started</a></li>
-  </ul>
-</nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- PAGE: HOME -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<div class="page active" id="page-home">
-
-  <!-- HERO -->
-  <section class="hero" style="padding:0;">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow animate delay-1">Digital Growth Partners · South Africa</p>
-      <h1 class="animate delay-2">Unlock Your<br><em>Business Potential</em><br>Online</h1>
-      <p class="hero-sub animate delay-3">We craft digital identities that resonate with your audience, drive meaningful engagement, and accelerate business growth across social media and paid advertising.</p>
-      <div class="hero-actions animate delay-4">
-        <button class="btn-primary" onclick="showPage('home'); setTimeout(()=>scrollTo('contact'),50)">Start the Conversation</button>
-        <button class="btn-ghost-nav" onclick="showPage('social')">Explore Services</button>
+      <div class="nav-menu">
+        <a href="#home" data-page-link="home" class="active">Home</a>
+        <a href="#social" data-page-link="social">Social Media</a>
+        <a href="#paid" data-page-link="paid">Paid Marketing</a>
+        <a href="#web" data-page-link="web">Web Development</a>
+        <a href="#faq" class="anchor-link">FAQ</a>
+        <a href="#contact" class="nav-button anchor-link">Request a Quote</a>
       </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-stat-grid animate delay-2">
-        <div class="hero-stat">
-          <div class="hero-stat-num">38<span style="font-size:1.6rem">+</span></div>
-          <div class="hero-stat-label">Years Combined<br>Experience</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">3</div>
-          <div class="hero-stat-label">Core Digital<br>Disciplines</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num" style="font-size:2rem">PPC</div>
-          <div class="hero-stat-label">Paid Campaign<br>Management</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num" style="font-size:2rem">PR</div>
-          <div class="hero-stat-label">Journalism &<br>Public Relations</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </nav>
+  </header>
 
-  <!-- ABOUT -->
-  <section id="about" style="background: var(--white);">
-    <div class="section-inner">
-      <div class="about-grid">
-        <div>
-          <p class="section-tag">Who We Are</p>
-          <h2 class="section-title">Welcome to<br><em>Keyword Social Media</em></h2>
-          <div class="gold-line"></div>
-          <p style="color:var(--mid-gray);font-size:1rem;line-height:1.9;margin-bottom:1rem;">With a combined experience of over 38 years in journalism, marketing, PPC campaigns, public relations, and social media, we add the missing element to your digital presence.</p>
-          <p style="color:var(--mid-gray);font-size:1rem;line-height:1.9;">Crafting content that grows your brand, creates a dedicated following, and enhances your online presence is our specialty. Add expertly configured paid advertising campaigns and you have a solution that pushes your business to new heights.</p>
-          <div class="about-numbers">
-            <div><div class="about-num-val">38<span>+</span></div><div class="about-num-label">Yrs Experience</div></div>
-            <div><div class="about-num-val">3</div><div class="about-num-label">Service Pillars</div></div>
-            <div><div class="about-num-val">100<span>%</span></div><div class="about-num-label">Client Focused</div></div>
-          </div>
-        </div>
-        <div>
-          <div class="testimonial-card">
-            <p class="testimonial-text">Keyword helped us get our new business off the ground. They always put in extra effort to help me and our company grow. With their excellent knowledge and connections, they helped us widen our network and reach the right suppliers. After working with them on our new company, we moved our existing company's website and marketing over to them as well. You most definitely get more than you pay for — always quick to respond and stick to their deadlines.</p>
-            <p class="testimonial-author">Wynand van Niekerk — Kracht 4x4 Fitment Centre</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY SOCIAL MEDIA -->
-  <section id="why-social" style="background:var(--off-white);">
-    <div class="section-inner">
-      <p class="section-tag">Service 01</p>
-      <h2 class="section-title">Why <em>Social Media</em> Management</h2>
-      <p class="section-lead">Social media is more than a platform — it's a gateway to unlimited opportunity. Connect with your audience on a deeper level, build brand loyalty, and drive real growth.</p>
-      <div class="service-grid">
-        <div class="service-card"><div class="service-icon">↑</div><h3>Skyrocket Your Visibility</h3><p>Expert content strategy and audience targeting ensures your brand stands out and consistently attracts the right customers at scale.</p></div>
-        <div class="service-card"><div class="service-icon">◈</div><h3>Dominate Your Niche</h3><p>Tailored campaigns that position your brand as a recognised leader in your market, driving sustained attention and measurable growth.</p></div>
-        <div class="service-card"><div class="service-icon">⟳</div><h3>Drive Engagement, Boost Sales</h3><p>Compelling content and meaningful audience interactions proven to convert followers into loyal, paying customers over time.</p></div>
-        <div class="service-card"><div class="service-icon">→</div><h3>Stay Ahead of the Curve</h3><p>From the latest trends to cutting-edge strategies, we keep your brand relevant and resonant — always one step ahead of competitors.</p></div>
-      </div>
-      <div style="margin-top:2.5rem;"><button class="btn-outline" onclick="showPage('social')">View Social Media Packages →</button></div>
-    </div>
-  </section>
-
-  <!-- WHY META ADS -->
-  <section id="why-meta" style="background:var(--navy);">
-    <div class="section-inner">
-      <p class="section-tag">Service 02</p>
-      <h2 class="section-title" style="color:var(--white);">Why <em>Meta Ads</em></h2>
-      <p class="section-lead" style="color:rgba(255,255,255,0.45);">Meta advertising offers unparalleled precision targeting. Reach your ideal audience at exactly the right moment across Facebook, Instagram, Messenger, and WhatsApp.</p>
-      <div class="service-grid-dark">
-        <div class="service-card-dark"><div class="service-icon">◎</div><h3>Precision Targeting, Maximum Impact</h3><p>Leverage Meta's advanced targeting to ensure your ads reach those most likely to convert — driving higher engagement and genuine ROI.</p></div>
-        <div class="service-card-dark"><div class="service-icon">≡</div><h3>Data-Driven Strategies</h3><p>Harness Meta's robust analytics tools to gain deep audience insights and enable continuous, performance-driven campaign optimisation.</p></div>
-        <div class="service-card-dark"><div class="service-icon">⊞</div><h3>Seamless Cross-Platform Reach</h3><p>Extend reach across Meta's entire ecosystem with consistent, cohesive messaging that reinforces your brand at every digital touchpoint.</p></div>
-        <div class="service-card-dark"><div class="service-icon">◇</div><h3>Innovative Ad Formats</h3><p>Video ads, carousel formats, and optimised image ads that captivate your audience and set your brand apart in a competitive marketplace.</p></div>
-      </div>
-      <div style="margin-top:2.5rem;"><button class="btn-ghost-light" onclick="showPage('ppc')">View Paid Marketing Packages →</button></div>
-    </div>
-  </section>
-
-  <!-- WHY GOOGLE ADS -->
-  <section id="why-google" style="background:var(--white);">
-    <div class="section-inner">
-      <p class="section-tag">Service 03</p>
-      <h2 class="section-title">Why <em>Google Ads</em></h2>
-      <p class="section-lead">The cornerstone of modern digital advertising — connecting your business with potential customers at the precise moment they're searching for what you offer.</p>
-      <div class="service-grid">
-        <div class="service-card"><div class="service-icon">⌖</div><h3>Reach Customers at the Right Moment</h3><p>Appear at the top of search results precisely when potential customers are actively seeking your products or services, driving highly qualified leads.</p></div>
-        <div class="service-card"><div class="service-icon">⊹</div><h3>Capture Attention Across the Web</h3><p>Extend reach beyond search through Google's Display Network — websites, YouTube, and mobile apps — increasing brand awareness everywhere.</p></div>
-        <div class="service-card"><div class="service-icon">◈</div><h3>Targeted Advertising for Maximum ROI</h3><p>Advanced demographic, interest, and behavioural targeting delivers personalised ads that resonate deeply and drive higher conversion rates.</p></div>
-        <div class="service-card"><div class="service-icon">↗</div><h3>Track, Analyse & Optimise</h3><p>Real-time analytics on clicks, impressions, and conversions give you the data to continually refine campaigns for peak performance.</p></div>
-      </div>
-      <div style="margin-top:2.5rem;"><button class="btn-outline" onclick="showPage('ppc')">View Google Ad Packages →</button></div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIAL BAND -->
-  <section style="background:var(--navy-mid);padding:5rem 4rem;">
-    <div class="section-inner">
-      <div class="testimonial-card" style="max-width:800px;margin:0 auto;">
-        <p class="testimonial-text">We have been serviced by a few social media companies over the past 25 years and knew from the moment we met Cobus and Hannelie that they had loads to offer. They are really passionate about our business and driven to achieve our goals. They quickly formed part of our team and totally understood our portfolio. They will go the extra mile and give their honest opinion at the same time. Highly recommended.</p>
-        <p class="testimonial-author">Berg 4x4 Rentals</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" style="background:var(--off-white);">
-    <div class="section-inner">
-      <div class="faq-layout">
-        <div>
-          <p class="section-tag">Common Questions</p>
-          <h2 class="section-title">Have<br><em>Questions?</em></h2>
-          <p style="color:var(--mid-gray);font-size:0.9rem;line-height:1.8;margin-top:1rem;">Contact us and we'll make sure every question gets answered thoroughly.</p>
-          <div style="margin-top:2.5rem;"><button class="btn-outline" onclick="showPage('home');setTimeout(()=>scrollTo('contact'),50)">Get in Touch</button></div>
-        </div>
-        <div class="faq-list">
-          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How can digital marketing help my business grow?<span class="faq-icon">+</span></div><div class="faq-answer"><p class="faq-answer-inner">Digital marketing grows your business by increasing brand awareness, driving website traffic, generating qualified leads, and converting those leads into customers — all with measurable, trackable results across every channel.</p></div></div>
-          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Which strategies are most effective for my industry?<span class="faq-icon">+</span></div><div class="faq-answer"><p class="faq-answer-inner">Effective strategies vary by industry but commonly include SEO, content marketing, social media management, email marketing, and PPC advertising. We assess your specific market to recommend the best combination for your goals.</p></div></div>
-          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do you measure campaign success?<span class="faq-icon">+</span></div><div class="faq-answer"><p class="faq-answer-inner">We track key KPIs including website traffic, conversion rates, engagement metrics, return on investment (ROI), and customer acquisition cost (CAC) — all reported transparently in monthly statistics reports.</p></div></div>
-          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">When will I start seeing results?<span class="faq-icon">+</span></div><div class="faq-answer"><p class="faq-answer-inner">Paid campaigns typically show results within weeks. Organic social media growth and SEO results develop over months. We set realistic expectations and communicate milestones clearly from the outset.</p></div></div>
-          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do you tailor strategies to my specific business?<span class="faq-icon">+</span></div><div class="faq-answer"><p class="faq-answer-inner">Every strategy is customised based on your business goals, target audience demographics, industry trends, budget constraints, and competitive landscape. No cookie-cutter approaches — ever.</p></div></div>
-          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do you stay current with digital marketing changes?<span class="faq-icon">+</span></div><div class="faq-answer"><p class="faq-answer-inner">Our team continuously trains through industry publications, professional development courses, platform certifications, and hands-on experimentation to remain at the forefront of digital marketing innovation.</p></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" style="background:var(--navy);position:relative;overflow:hidden;">
-    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(200,169,110,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,110,0.05) 1px,transparent 1px);background-size:60px 60px;"></div>
-    <div class="section-inner" style="position:relative;z-index:2;">
-      <div class="contact-layout">
-        <div>
-          <p class="section-tag">Let's Talk</p>
-          <h2 class="section-title" style="color:var(--white);">Start Your<br><em>Digital Journey</em></h2>
-          <p class="section-lead" style="color:rgba(255,255,255,0.45);">Ready to take your online presence to the next level? Contact us today and let's grow your business together.</p>
-          <div class="contact-divider"></div>
-          <div class="contact-info-label">Location</div><div class="contact-info-val">South Africa</div>
-          <div class="contact-info-label">Website</div><div class="contact-info-val">keywordsocialmedia.co.za</div>
-          <div class="contact-info-label">Specialisations</div><div class="contact-info-val">Social Media · Meta Ads · Google Ads</div>
-        </div>
-        <div>
-          <form class="contact-form" onsubmit="handleSubmit(event)">
-            <div class="form-group"><label>Your Name</label><input type="text" placeholder="Full name" required></div>
-            <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com" required></div>
-            <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+27 ..."></div>
-            <div class="form-group">
-              <label>Service of Interest</label>
-              <select>
-                <option value="">Select a service...</option>
-                <option>Social Media Management</option>
-                <option>Meta Ads (Facebook &amp; Instagram)</option>
-                <option>Google Ads</option>
-                <option>Combined Package</option>
-                <option>Other / Not sure yet</option>
-              </select>
+  <main>
+    <!-- HOME PAGE -->
+    <section class="page active" id="page-home">
+      <section class="hero section-pad">
+        <div class="hero-shape hero-shape-one"></div>
+        <div class="hero-shape hero-shape-two"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Digital marketing, websites & growth support</p>
+            <h1>Premium online growth for established South African businesses.</h1>
+            <p class="hero-lead">Keyword helps small and medium businesses look sharper online, attract better enquiries, and turn attention into real business opportunities.</p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary anchor-link">Request a Quote</a>
+              <button class="btn btn-secondary" data-page-link="web">View Web Development</button>
             </div>
-            <div class="form-group"><label>How Can We Help?</label><textarea rows="4" placeholder="Tell us about your business and goals..."></textarea></div>
-            <button type="submit" class="contact-submit">Send Message →</button>
+            <div class="trust-row" aria-label="Keyword service highlights">
+              <span>Social Media</span>
+              <span>Meta Ads</span>
+              <span>Google Ads</span>
+              <span>Websites</span>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Digital marketing dashboard mockup">
+            <div class="dashboard-card main-dashboard">
+              <div class="dashboard-top">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <strong>Growth Snapshot</strong>
+              </div>
+              <div class="metric-strip">
+                <div><strong>Leads</strong><span>Better qualified enquiries</span></div>
+                <div><strong>Trust</strong><span>Clearer brand presence</span></div>
+                <div><strong>Sales</strong><span>Cleaner conversion path</span></div>
+              </div>
+              <div class="chart-bars">
+                <span style="height:38%"></span><span style="height:64%"></span><span style="height:48%"></span><span style="height:78%"></span><span style="height:92%"></span>
+              </div>
+              <div class="mock-notification">
+                <span class="pulse"></span>
+                New quote enquiry captured
+              </div>
+            </div>
+            <div class="floating-card floating-one">
+              <span class="icon-bubble">✓</span>
+              <p>Website, ads and content working together.</p>
+            </div>
+            <div class="floating-card floating-two">
+              <span class="icon-bubble">↗</span>
+              <p>Built for visibility, trust and enquiries.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad bg-white">
+        <div class="container split-grid">
+          <div>
+            <p class="eyebrow">Who we help</p>
+            <h2>For businesses that are already operating — but need a stronger online engine.</h2>
+          </div>
+          <div>
+            <p class="large-copy">This is not a “post and hope” service. Keyword brings together social media, paid marketing, website development and practical online systems so your business looks credible, gets found, and gives prospects a clear next step.</p>
+            <div class="mini-proof-grid">
+              <div><strong>38+</strong><span>years combined experience</span></div>
+              <div><strong>4</strong><span>core growth services</span></div>
+              <div><strong>ZA</strong><span>built for South African SMBs</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad bg-soft">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">What we fix</p>
+            <h2>Most businesses do not need more noise. They need a better path from attention to enquiry.</h2>
+          </div>
+
+          <div class="problem-solution">
+            <div class="problem-card">
+              <h3>Before Keyword</h3>
+              <ul>
+                <li>Social pages look active but do not create clear demand.</li>
+                <li>Ads send visitors to weak or confusing pages.</li>
+                <li>Websites look outdated, slow or generic.</li>
+                <li>Prospects are interested but never take the next step.</li>
+              </ul>
+            </div>
+            <div class="solution-arrow" aria-hidden="true">→</div>
+            <div class="solution-card">
+              <h3>After Keyword</h3>
+              <ul>
+                <li>Clear positioning and content built around buyer intent.</li>
+                <li>Paid campaigns supported by better landing pages.</li>
+                <li>Modern websites that build trust quickly.</li>
+                <li>Simple conversion paths: quote, call, WhatsApp or booking.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad bg-navy">
+        <div class="container">
+          <div class="section-heading light">
+            <p class="eyebrow">Services</p>
+            <h2>One partner for the pieces that need to work together.</h2>
+          </div>
+
+          <div class="service-cards">
+            <article class="service-tile">
+              <div class="tile-icon">◎</div>
+              <h3>Social Media Management</h3>
+              <p>Consistent, professional content that keeps your business visible, trusted and relevant.</p>
+              <button data-page-link="social">View service</button>
+            </article>
+            <article class="service-tile">
+              <div class="tile-icon">↗</div>
+              <h3>Paid Marketing</h3>
+              <p>Meta and Google campaigns focused on the right audience, better traffic and measurable enquiries.</p>
+              <button data-page-link="paid">View service</button>
+            </article>
+            <article class="service-tile highlight">
+              <div class="tile-icon">⌁</div>
+              <h3>Web Development</h3>
+              <p>Websites, landing pages and ecommerce builds designed to make your business look credible and convert better.</p>
+              <button data-page-link="web">View service</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad bg-white">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Simple process</p>
+            <h2>How we turn a scattered online presence into a cleaner growth system.</h2>
+          </div>
+
+          <div class="process-line">
+            <div class="process-step">
+              <span>01</span>
+              <h3>Audit</h3>
+              <p>We review your website, social pages, ad accounts and customer journey.</p>
+            </div>
+            <div class="process-step">
+              <span>02</span>
+              <h3>Plan</h3>
+              <p>We map what needs to change first: content, ads, website, tracking or conversion flow.</p>
+            </div>
+            <div class="process-step">
+              <span>03</span>
+              <h3>Build</h3>
+              <p>We create the campaigns, content and web pages needed to support your goals.</p>
+            </div>
+            <div class="process-step">
+              <span>04</span>
+              <h3>Improve</h3>
+              <p>We monitor performance and keep improving the system month after month.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad bg-soft">
+        <div class="container testimonial-grid">
+          <div>
+            <p class="eyebrow">Client feedback</p>
+            <h2>Trusted by businesses that need practical marketing support.</h2>
+          </div>
+          <div class="testimonial-stack">
+            <blockquote>
+              <p>Keyword helped us get our new business off the ground. They always put in extra effort to help me and our company grow. You most definitely get more than you pay for — always quick to respond and stick to their deadlines.</p>
+              <cite>Wynand van Niekerk — Kracht 4x4 Fitment Centre</cite>
+            </blockquote>
+            <blockquote>
+              <p>They are really passionate about our business and driven to achieve our goals. They quickly formed part of our team and totally understood our portfolio. Highly recommended.</p>
+              <cite>Berg 4x4 Rentals</cite>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad bg-white" id="faq">
+        <div class="container faq-grid">
+          <div>
+            <p class="eyebrow">FAQ</p>
+            <h2>Questions business owners usually ask first.</h2>
+            <p class="muted">Clear answers before you commit to anything.</p>
+          </div>
+          <div class="faq-list">
+            <article class="faq-item open">
+              <button>Can you handle marketing and the website together?<span>+</span></button>
+              <div><p>Yes. That is the point. A campaign performs better when the website, landing page, messaging and follow-up path are aligned.</p></div>
+            </article>
+            <article class="faq-item">
+              <button>Do you work with startups?<span>+</span></button>
+              <div><p>Keyword is best suited to established small and medium businesses that already operate, already have customers, and need stronger online visibility or lead generation.</p></div>
+            </article>
+            <article class="faq-item">
+              <button>Do I need to know what service I need?<span>+</span></button>
+              <div><p>No. The first step is to understand what is currently holding growth back. Then we recommend the most useful starting point.</p></div>
+            </article>
+            <article class="faq-item">
+              <button>How quickly can work start?<span>+</span></button>
+              <div><p>That depends on the project scope, available content, access to accounts, and how much needs to be rebuilt. The quote process will confirm the realistic timeline.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad bg-navy contact-section" id="contact">
+        <div class="container contact-grid">
+          <div>
+            <p class="eyebrow">Request a quote</p>
+            <h2>Tell us what you need fixed, built or improved.</h2>
+            <p class="large-copy light-copy">We will look at your business, your current online presence and the result you want — then recommend the cleanest way forward.</p>
+            <div class="contact-points">
+              <span>South Africa</span>
+              <span>keywordsocialmedia.co.za</span>
+              <span>Social · Ads · Websites</span>
+            </div>
+          </div>
+
+          <form class="quote-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="hidden" name="_subject" value="New quote request from Keyword website" />
+            <div class="form-row">
+              <label>Full name<input type="text" name="name" placeholder="Your name" required /></label>
+              <label>Business name<input type="text" name="business" placeholder="Company name" /></label>
+            </div>
+            <div class="form-row">
+              <label>Email<input type="email" name="email" placeholder="you@company.co.za" required /></label>
+              <label>Phone<input type="tel" name="phone" placeholder="+27 ..." /></label>
+            </div>
+            <label>What do you need help with?
+              <select name="service" required>
+                <option value="">Select one...</option>
+                <option>Social Media Management</option>
+                <option>Meta / Facebook / Instagram Ads</option>
+                <option>Google Ads</option>
+                <option>Web Development</option>
+                <option>Ecommerce Website</option>
+                <option>Website Redesign</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label>Tell us what you want to improve
+              <textarea name="message" rows="5" placeholder="Example: Our website is outdated, we need better enquiries, and our social media is inconsistent." required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Request a Quote</button>
+            <p class="form-note">Replace the Formspree URL in the code with your real Formspree endpoint before publishing.</p>
           </form>
         </div>
+      </section>
+    </section>
+
+    <!-- SOCIAL PAGE -->
+    <section class="page" id="page-social">
+      <section class="page-hero">
+        <div class="container narrow">
+          <p class="breadcrumb"><button data-page-link="home">Home</button> / Social Media</p>
+          <p class="eyebrow">Social Media Management</p>
+          <h1>Professional social media for businesses that need to stay visible and trusted.</h1>
+          <p>We create, manage and improve your social presence so your business looks active, credible and easier to choose.</p>
+          <a href="#contact" class="btn btn-primary anchor-link">Request a Quote</a>
+        </div>
+      </section>
+
+      <section class="section-pad bg-white">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">What this service solves</p>
+            <h2>Social media should support the business, not just fill a calendar.</h2>
+          </div>
+          <div class="benefit-grid">
+            <div><span class="tile-icon">◈</span><h3>Better brand consistency</h3><p>Your audience sees a professional, active and reliable business.</p></div>
+            <div><span class="tile-icon">◎</span><h3>Clearer customer education</h3><p>We explain what you offer, why it matters, and why people should contact you.</p></div>
+            <div><span class="tile-icon">↗</span><h3>More useful content</h3><p>Posts are built around visibility, trust, proof, offers and customer questions.</p></div>
+            <div><span class="tile-icon">☑</span><h3>Less pressure on your team</h3><p>You do not have to constantly wonder what to post next.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad bg-soft">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Package structure</p>
+            <h2>Three practical management levels. Final quote depends on platforms, content volume and production needs.</h2>
+          </div>
+          <div class="package-grid">
+            <article class="package-card">
+              <p class="package-label">Foundation</p>
+              <h3>Professional Presence</h3>
+              <p>For businesses that need consistency, cleaner messaging and a reliable monthly content rhythm.</p>
+              <ul><li>Content planning</li><li>Facebook & Instagram management</li><li>Basic creative production</li><li>Monthly reporting</li></ul>
+              <a href="#contact" class="text-link anchor-link">Request quote →</a>
+            </article>
+            <article class="package-card featured">
+              <p class="package-label">Growth</p>
+              <h3>Visibility & Engagement</h3>
+              <p>For businesses that want stronger content, more formats and better use of social channels.</p>
+              <ul><li>Everything in Foundation</li><li>Reels/stories support</li><li>Review and community support</li><li>Campaign content themes</li></ul>
+              <a href="#contact" class="text-link anchor-link">Request quote →</a>
+            </article>
+            <article class="package-card">
+              <p class="package-label">Managed Growth</p>
+              <h3>Content + Ads Support</h3>
+              <p>For businesses that need organic social and paid campaigns to work together.</p>
+              <ul><li>Higher content volume</li><li>Paid campaign coordination</li><li>Creative testing support</li><li>Performance reporting</li></ul>
+              <a href="#contact" class="text-link anchor-link">Request quote →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- PAID PAGE -->
+    <section class="page" id="page-paid">
+      <section class="page-hero">
+        <div class="container narrow">
+          <p class="breadcrumb"><button data-page-link="home">Home</button> / Paid Marketing</p>
+          <p class="eyebrow">Meta & Google Ads</p>
+          <h1>Paid marketing campaigns built around better traffic, better tracking and better enquiries.</h1>
+          <p>We help South African businesses run smarter campaigns across Google, Facebook, Instagram and related platforms.</p>
+          <a href="#contact" class="btn btn-primary anchor-link">Request a Quote</a>
+        </div>
+      </section>
+
+      <section class="section-pad bg-white">
+        <div class="container paid-grid">
+          <article class="paid-card">
+            <div class="platform-badge">Meta</div>
+            <h2>Facebook & Instagram Ads</h2>
+            <p>Ideal for demand creation, remarketing, local visibility, offers and audience building.</p>
+            <ul><li>Campaign setup</li><li>Audience targeting</li><li>Creative direction</li><li>Ad copywriting</li><li>Retargeting</li><li>Reporting</li></ul>
+          </article>
+          <article class="paid-card">
+            <div class="platform-badge">Google</div>
+            <h2>Search, Display & YouTube</h2>
+            <p>Ideal for capturing people already searching for your products or services.</p>
+            <ul><li>Keyword research</li><li>Search campaigns</li><li>Conversion tracking</li><li>Landing page review</li><li>Budget monitoring</li><li>Optimisation</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-pad bg-soft">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Conversion reminder</p>
+            <h2>Ads cannot carry a weak customer journey.</h2>
+            <p class="section-copy">Before scaling traffic, we check whether your landing page, offer, tracking and follow-up path can actually convert. This protects your ad spend and improves the quality of enquiries.</p>
+          </div>
+          <div class="flow-diagram">
+            <div>Ad click</div><span>→</span><div>Landing page</div><span>→</span><div>Trust proof</div><span>→</span><div>Quote request</div><span>→</span><div>Follow-up</div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- WEB PAGE -->
+    <section class="page" id="page-web">
+      <section class="page-hero web-hero">
+        <div class="container narrow">
+          <p class="breadcrumb"><button data-page-link="home">Home</button> / Web Development</p>
+          <p class="eyebrow">Web Development</p>
+          <h1>Websites that make your business look credible and make enquiries easier.</h1>
+          <p>From brochure websites to ecommerce, landing pages and redesigns — Keyword builds modern web assets that support real business growth.</p>
+          <a href="#contact" class="btn btn-primary anchor-link">Request a Quote</a>
+        </div>
+      </section>
+
+      <section class="section-pad bg-white">
+        <div class="container web-showcase">
+          <div>
+            <p class="eyebrow">Why it matters</p>
+            <h2>Your website is often the decision point.</h2>
+            <p class="large-copy">People compare you before they contact you. A weak website creates doubt. A clear, modern site builds trust, explains your value and guides the visitor to request a quote, call, WhatsApp or book a consultation.</p>
+            <div class="check-list">
+              <span>Modern design</span>
+              <span>Clear service pages</span>
+              <span>Mobile-first layout</span>
+              <span>Conversion-focused copy</span>
+              <span>Basic SEO structure</span>
+              <span>Cloudflare-ready deployment</span>
+            </div>
+          </div>
+          <div class="website-mockup">
+            <div class="browser-bar"><span></span><span></span><span></span></div>
+            <div class="mock-hero"></div>
+            <div class="mock-grid">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="mock-lines"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad bg-soft">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">What we build</p>
+            <h2>Web development options for real businesses, not vanity projects.</h2>
+          </div>
+          <div class="web-services-grid">
+            <article><h3>Business Websites</h3><p>Professional websites for established businesses that need credibility, clarity and enquiries.</p></article>
+            <article><h3>Landing Pages</h3><p>Focused pages for Google Ads, Meta campaigns, lead magnets, promotions and service offers.</p></article>
+            <article><h3>Ecommerce Websites</h3><p>Online stores and product-driven websites using the right platform for the business need.</p></article>
+            <article><h3>Website Redesigns</h3><p>Modern rebuilds for outdated sites that no longer reflect the quality of the business.</p></article>
+            <article><h3>Website Maintenance</h3><p>Ongoing updates, edits, page changes and practical support after launch.</p></article>
+            <article><h3>Conversion Improvements</h3><p>Better CTAs, better page structure, better trust proof and cleaner user flow.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad bg-navy">
+        <div class="container">
+          <div class="section-heading light">
+            <p class="eyebrow">Deployment</p>
+            <h2>Built cleanly for GitHub and Cloudflare hosting.</h2>
+            <p class="section-copy light-copy">The visitor never needs to know the technical details. Behind the scenes, the website is structured neatly for fast static hosting, easy updates and reliable deployment.</p>
+          </div>
+          <div class="tech-flow">
+            <div><strong>Design</strong><span>Structure, copy and visuals</span></div>
+            <span>→</span>
+            <div><strong>Build</strong><span>HTML, CSS and JavaScript</span></div>
+            <span>→</span>
+            <div><strong>Publish</strong><span>GitHub to Cloudflare</span></div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#home" class="brand footer-brand" data-page-link="home">
+          <img src="assets/images/keyword-logo.svg" alt="Keyword Social Media logo" />
+          <span>Keyword</span>
+        </a>
+        <p>Digital marketing, paid campaigns and websites for South African small and medium businesses.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <button data-page-link="social">Social Media</button>
+        <button data-page-link="paid">Paid Marketing</button>
+        <button data-page-link="web">Web Development</button>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>South Africa</p>
+        <p>keywordsocialmedia.co.za</p>
+        <a href="#contact" class="text-link anchor-link">Request a Quote →</a>
       </div>
     </div>
-  </section>
-
-  <footer>
-    <span class="footer-logo">Key<span>word</span> Social Media</span>
-    <div class="footer-links">
-      <a onclick="showPage('home')">Home</a>
-      <a onclick="showPage('social')">Social Media</a>
-      <a onclick="showPage('ppc')">Paid Marketing</a>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Keyword Social Media. All rights reserved.</span>
     </div>
-    <span class="footer-copy">© 2024 Keyword Social Media. All rights reserved.</span>
   </footer>
-</div><!-- /page-home -->
 
-
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- PAGE: SOCIAL MEDIA PACKAGES -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<div class="page" id="page-social">
-
-  <div class="page-hero">
-    <div class="page-hero-grid"></div>
-    <div class="page-hero-inner">
-      <div class="breadcrumb">
-        <span onclick="showPage('home')">Home</span>
-        <span class="sep">›</span>
-        <span style="color:var(--gold);">Social Media Packages</span>
-      </div>
-      <p class="section-tag">Service 01</p>
-      <h1>Social Media<br><em>Management Packages</em></h1>
-      <p>Stay ahead and leverage every opportunity for success. Our packages cover Facebook, Instagram, TikTok, YouTube, and Google Reviews — tailored to businesses of all sizes.</p>
-    </div>
-  </div>
-
-  <section style="background:var(--off-white);">
-    <div class="section-inner">
-
-      <div class="saving-banner">
-        <p><strong>Save up to 20% — </strong>15% off your first two months when you commit for 6 months. 20% off when you commit for 12 months or more.</p>
-      </div>
-
-      <div class="pricing-grid">
-
-        <!-- GREEN PLAN -->
-        <div class="pricing-card">
-          <div class="pricing-tier">Tier 01 — Entry</div>
-          <div class="pricing-name">Green Plan</div>
-          <p style="font-size:0.82rem;color:var(--mid-gray);line-height:1.6;margin-bottom:0.75rem;">Perfect for businesses just starting their social media journey.</p>
-          <div class="pricing-price">R 4,695<span>/month (excl.)</span></div>
-          <div class="pricing-divider"></div>
-          <ul class="pricing-features">
-            <li>Facebook: 10–15 posts/month (2 per week) with text, hashtags &amp; photos</li>
-            <li>Instagram: 10–15 posts/month (2 per week) with text, hashtags &amp; photos</li>
-            <li>Facebook &amp; Instagram: Page/account set-up &amp; bio</li>
-            <li>Monthly cover photo update &amp; Instagram icon creation</li>
-            <li>Facebook: Weekly advertising on groups</li>
-            <li>Monitor, reply &amp; refer comments to company</li>
-            <li>Monthly social media statistics reports</li>
-            <li>TikTok: Account set-up + 10 posts/month (1 per week)</li>
-            <li>Facebook: 4–5 Reels/month</li>
-            <li>Instagram: 4–5 Stories + short video posts/month</li>
-            <li>Photo &amp; video shooting for all platforms</li>
-            <li>6 hours photo/video shooting per month</li>
-            <li>Reply to Messenger &amp; DM queries</li>
-            <li>Google Reviews: set-up</li>
-            <li>Website domain registration assistance</li>
-            <li>Google + Meta Ads management available (additional cost)</li>
-          </ul>
-          <div style="flex:1;"></div>
-          <button class="btn-outline" onclick="showPage('home');setTimeout(()=>scrollTo('contact'),50)">Get Started →</button>
-        </div>
-
-        <!-- GOLD PLAN -->
-        <div class="pricing-card">
-          <div class="pricing-tier">Tier 02 — Growth</div>
-          <div class="pricing-name">Gold Plan</div>
-          <p style="font-size:0.82rem;color:var(--mid-gray);line-height:1.6;margin-bottom:0.75rem;">For growing businesses ready to increase visibility and engagement.</p>
-          <div class="pricing-price">R 8,795<span>/month (excl.)</span></div>
-          <div class="pricing-divider"></div>
-          <ul class="pricing-features">
-            <li>Facebook: 15+ posts/month with text, hashtags &amp; photos</li>
-            <li>Instagram: 15+ posts/month with text, hashtags &amp; photos</li>
-            <li>Facebook &amp; Instagram: Page/account set-up &amp; bio</li>
-            <li>Monthly cover photo update &amp; Instagram icon creation</li>
-            <li>Facebook: Weekly advertising on groups</li>
-            <li>Monitor, reply &amp; refer comments to company</li>
-            <li>Monthly social media statistics reports</li>
-            <li>TikTok: Account set-up + 15 posts/month</li>
-            <li>Facebook: 4–7 Reels/month</li>
-            <li>Instagram: 4–7 Stories + short video posts/month</li>
-            <li>Photo &amp; video shooting for all platforms</li>
-            <li>8 hours photo/video shooting per month</li>
-            <li>Reply to Messenger &amp; DM queries</li>
-            <li>Google Reviews: set-up &amp; management</li>
-            <li>YouTube: channel set-up &amp; video uploads</li>
-            <li>Website domain registration assistance</li>
-            <li>Google + Meta Ads management available (additional cost)</li>
-          </ul>
-          <div style="flex:1;"></div>
-          <button class="btn-outline" onclick="showPage('home');setTimeout(()=>scrollTo('contact'),50)">Get Started →</button>
-        </div>
-
-        <!-- VIP - FEATURED -->
-        <div class="pricing-card featured">
-          <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-tier">Tier 03 — Professional</div>
-          <div class="pricing-name" style="color:var(--white);">VIP Plan</div>
-          <p style="font-size:0.82rem;color:rgba(255,255,255,0.4);line-height:1.6;margin-bottom:0.75rem;">Full-service management with paid ads included — the complete growth engine.</p>
-          <div class="pricing-price">From R 13,470<span>/month (excl.)</span></div>
-          <div class="pricing-divider"></div>
-          <ul class="pricing-features">
-            <li>Facebook &amp; Instagram: 18 posts/month</li>
-            <li>Full page/account set-up &amp; bio across all platforms</li>
-            <li>Monthly cover photo update &amp; icon creation</li>
-            <li>Facebook: Weekly group advertising</li>
-            <li>Monitor, reply &amp; refer all comments</li>
-            <li>Monthly statistics reports</li>
-            <li>TikTok: Set-up + 15 posts/month</li>
-            <li>Facebook: 4–7 Reels/month</li>
-            <li>Instagram: 4–7 Stories + short video posts/month</li>
-            <li>Photo &amp; video shooting across all platforms</li>
-            <li>8 hours photo/video shooting per month</li>
-            <li>Reply to all Messenger &amp; DM queries</li>
-            <li>Google Reviews: set-up &amp; management</li>
-            <li>YouTube: channel set-up &amp; video uploads</li>
-            <li>Google + Meta Ads Campaign Management included</li>
-            <li>Google Ads stats &amp; keyword adjustments</li>
-            <li>Ad spend budget up to R10,000 included</li>
-          </ul>
-          <div class="pricing-note">Posts may vary depending on content available. Spend budgets above R10,000 require a personalised quote.</div>
-          <div style="flex:1;"></div>
-          <button class="btn-primary" onclick="showPage('home');setTimeout(()=>scrollTo('contact'),50)">Get Started →</button>
-        </div>
-
-        <!-- VIP PLUS -->
-        <div class="pricing-card">
-          <div class="pricing-tier">Tier 04 — Enterprise</div>
-          <div class="pricing-name">VIP Plus</div>
-          <p style="font-size:0.82rem;color:var(--mid-gray);line-height:1.6;margin-bottom:0.75rem;">The ultimate package — professional shoots, YouTube and full ad management.</p>
-          <div class="pricing-price">From R 19,995<span>/month (excl.)</span></div>
-          <div class="pricing-divider"></div>
-          <ul class="pricing-features">
-            <li>Facebook &amp; Instagram: 18 posts/month</li>
-            <li>Facebook: 4–7 Reels/month</li>
-            <li>Instagram: 4–7 Stories + short video posts/month</li>
-            <li>TikTok: 15 posts/month</li>
-            <li>YouTube: 4 videos/month (~15 min each)</li>
-            <li>8 hours photo/video shooting per month</li>
-            <li>3 hours professional photographer shoot/month</li>
-            <li>1 hour online store editing per month</li>
-            <li>1 hour website editing per month</li>
-            <li>Full platform set-up across all channels</li>
-            <li>Monthly statistics reports</li>
-            <li>Reply to all Messenger &amp; DM queries</li>
-            <li>Google Reviews: set-up &amp; management</li>
-            <li>Google + Meta Ads Campaign Management</li>
-            <li>Google Ads stats &amp; keyword adjustments</li>
-            <li>Ad spend budget up to R10,000 included</li>
-          </ul>
-          <div class="pricing-note">Posts may vary depending on content available. Spend budgets above R10,000 require a personalised quote.</div>
-          <div style="flex:1;"></div>
-          <button class="btn-outline" onclick="showPage('home');setTimeout(()=>scrollTo('contact'),50)">Get Started →</button>
-        </div>
-
-      </div>
-
-      <div style="margin-top:4rem;background:var(--white);border-left:3px solid var(--gold);padding:2rem 2.5rem;">
-        <p style="font-size:0.88rem;color:var(--mid-gray);line-height:1.9;">All prices exclude VAT. Prices are subject to change based on specific campaign requirements. Contact us for a personalised quote if your needs fall outside the packages above.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY SOCIAL SECTION ON THIS PAGE -->
-  <section style="background:var(--navy);">
-    <div class="section-inner">
-      <p class="section-tag">Why It Matters</p>
-      <h2 class="section-title" style="color:var(--white);">Social media is your business's<br><em>direct line to growth</em></h2>
-      <p style="color:rgba(255,255,255,0.45);font-size:1rem;max-width:640px;line-height:1.85;margin-bottom:3rem;">It's not just a platform — it's a powerful tool to build brand loyalty, increase engagement, and boost sales. By embracing social media, you connect with your audience, raise awareness, and foster meaningful long-term relationships.</p>
-      <div class="service-grid-dark">
-        <div class="service-card-dark"><h3>Skyrocket Visibility</h3><p>We create content and strategies that ensure your brand stands out, reaching more potential customers every month.</p></div>
-        <div class="service-card-dark"><h3>Dominate Your Niche</h3><p>Through tailored campaigns, we position your business as a leader in your industry, driving sustained attention and growth.</p></div>
-        <div class="service-card-dark"><h3>Boost Engagement and Sales</h3><p>Compelling content and meaningful interactions turn your followers into loyal, paying customers over time.</p></div>
-        <div class="service-card-dark"><h3>Stay Ahead</h3><p>We keep you updated on the latest trends and strategies so your brand remains relevant and competitive in a fast-moving landscape.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:var(--off-white);padding:4rem 4rem;">
-    <div class="section-inner" style="text-align:center;">
-      <p style="color:var(--mid-gray);font-size:1rem;margin-bottom:1.5rem;">Ready to grow your social media presence?</p>
-      <button class="btn-primary" onclick="showPage('home');setTimeout(()=>scrollTo('contact'),50)">Contact Us Today →</button>
-    </div>
-  </section>
-
-  <footer>
-    <span class="footer-logo">Key<span>word</span> Social Media</span>
-    <div class="footer-links">
-      <a onclick="showPage('home')">Home</a>
-      <a onclick="showPage('social')">Social Media</a>
-      <a onclick="showPage('ppc')">Paid Marketing</a>
-    </div>
-    <span class="footer-copy">© 2024 Keyword Social Media. All rights reserved.</span>
-  </footer>
-</div><!-- /page-social -->
-
-
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- PAGE: PAID MARKETING -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<div class="page" id="page-ppc">
-
-  <div class="page-hero">
-    <div class="page-hero-grid"></div>
-    <div class="page-hero-inner">
-      <div class="breadcrumb">
-        <span onclick="showPage('home')">Home</span>
-        <span class="sep">›</span>
-        <span style="color:var(--gold);">Paid Marketing Campaigns</span>
-      </div>
-      <p class="section-tag">Service 02 &amp; 03</p>
-      <h1>Paid Marketing<br><em>Campaigns</em></h1>
-      <p>Harness the power of data-driven targeting to stay competitive and deliver measurable results across Meta and Google platforms.</p>
-    </div>
-  </div>
-
-  <!-- INTRO + PRICING -->
-  <section style="background:var(--white);">
-    <div class="section-inner">
-      <p style="color:var(--mid-gray);font-size:1rem;max-width:720px;line-height:1.9;margin-bottom:3rem;">Paid marketing campaigns on Google and Meta offer targeted reach, measurable results, and rapid scalability. With precise audience targeting, real-time analytics, and flexible budgeting, businesses can boost brand visibility, drive website traffic, and increase conversions efficiently.</p>
-
-      <div class="ppc-grid">
-        <div class="ppc-card" id="meta-marketing">
-          <div style="margin-bottom:0.5rem;"><span style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">Meta Platforms</span></div>
-          <h3>Meta Advertising<br><em style="font-family:var(--font-display);color:var(--gold);font-style:italic;">(Facebook &amp; Instagram)</em></h3>
-          <div class="price">From R 1,600<span style="font-size:1rem;font-family:var(--font-body);color:var(--mid-gray);">/month</span></div>
-          <p class="price-note">Management fee only — excludes ad spend budget. Actual fee depends on campaign requirements and monthly spend.</p>
-          <div style="height:1px;background:var(--light-gray);margin:1.5rem 0;"></div>
-          <ul class="ppc-features">
-            <li>Pinpoint audience targeting by demographics, interests &amp; behaviour</li>
-            <li>Advertising across Facebook, Instagram, Messenger &amp; WhatsApp</li>
-            <li>Compelling ad creative design (images, video, carousel)</li>
-            <li>Persuasive ad copywriting tailored to your audience</li>
-            <li>Campaign set-up with defined objectives and bidding strategy</li>
-            <li>Continuous optimisation (CTR, CPA, ROAS monitoring)</li>
-            <li>Community engagement — replies, comments &amp; DMs</li>
-            <li>Monthly analytics and performance reporting</li>
-          </ul>
-          <div style="margin-top:2rem;"><button class="btn-outline" onclick="showPage('home');setTimeout(()=>scrollTo('contact'),50)">Get a Quote →</button></div>
-        </div>
-
-        <div class="ppc-card" id="google-marketing">
-          <div style="margin-bottom:0.5rem;"><span style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">Google Platforms</span></div>
-          <h3>Google Ads<br><em style="font-family:var(--font-display);color:var(--gold);font-style:italic;">(Search, Display &amp; YouTube)</em></h3>
-          <div class="price">From R 1,600<span style="font-size:1rem;font-family:var(--font-body);color:var(--mid-gray);">/month</span></div>
-          <p class="price-note">Management fee only — excludes ad spend budget. Actual fee depends on campaign requirements and monthly spend.</p>
-          <div style="height:1px;background:var(--light-gray);margin:1.5rem 0;"></div>
-          <ul class="ppc-features">
-            <li>In-depth keyword research targeting your ideal audience</li>
-            <li>Campaign set-up: Search, Display, Video, Shopping or App</li>
-            <li>Persuasive ad copy that addresses user intent</li>
-            <li>Ad extensions: sitelinks, callouts, location, call extensions</li>
-            <li>Advanced demographic, interest &amp; behavioural targeting</li>
-            <li>Strategic bid management (CPC, CTR, conversion rate)</li>
-            <li>Conversion tracking for purchases, forms &amp; app downloads</li>
-            <li>Ongoing performance monitoring and campaign optimisation</li>
-          </ul>
-          <div style="margin-top:2rem;"><button class="btn-outline" onclick="showPage('home');setTimeout(()=>scrollTo('contact'),50)">Get a Quote →</button></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- META DETAIL -->
-  <section style="background:var(--navy);">
-    <div class="section-inner">
-      <p class="section-tag">Meta Marketing — In Depth</p>
-      <h2 class="section-title" style="color:var(--white);">What We Do for<br><em>Meta Campaigns</em></h2>
-      <p style="color:rgba(255,255,255,0.45);font-size:0.97rem;max-width:640px;line-height:1.85;margin-bottom:3rem;">Meta marketing is a multifaceted approach combining strategic planning, creative content, precise targeting, and ongoing optimisation to reach, engage, and convert target audiences on the world's largest social media platforms.</p>
-      <div class="detail-section">
-        <ul class="detail-list" style="color:rgba(255,255,255,0.5);">
-          <li style="color:rgba(255,255,255,0.5);">Audience targeting by demographics, interests, behaviours &amp; location</li>
-          <li style="color:rgba(255,255,255,0.5);">Visually compelling image, video &amp; carousel ad creative</li>
-          <li style="color:rgba(255,255,255,0.5);">Ad campaign set-up with defined objectives, budget &amp; scheduling</li>
-          <li style="color:rgba(255,255,255,0.5);">Persuasive ad copywriting aligned to audience pain points</li>
-          <li style="color:rgba(255,255,255,0.5);">Continuous campaign optimisation (CTR, CPA, ROAS)</li>
-          <li style="color:rgba(255,255,255,0.5);">Community engagement — replies, comments &amp; brand conversations</li>
-          <li style="color:rgba(255,255,255,0.5);">Meta analytics reporting with data-driven future recommendations</li>
-          <li style="color:rgba(255,255,255,0.5);">Retargeting campaigns to re-engage warm audiences</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- GOOGLE DETAIL -->
-  <section style="background:var(--off-white);">
-    <div class="section-inner">
-      <p class="section-tag">Google Ads — In Depth</p>
-      <h2 class="section-title">What We Do for<br><em>Google Campaigns</em></h2>
-      <p style="color:var(--mid-gray);font-size:0.97rem;max-width:640px;line-height:1.85;margin-bottom:3rem;">Google Ads allows businesses to promote products and services across Search, Display, YouTube, and partner properties — reaching potential customers at the exact moment they're actively looking.</p>
-      <div class="detail-section">
-        <ul class="detail-list">
-          <li>Keyword research identifying terms your customers actually use</li>
-          <li>Campaign set-up: Search, Display, Video, Shopping or App Promotion</li>
-          <li>Compelling ad copy addressing user intent and value proposition</li>
-          <li>Ad extensions: sitelinks, callouts, structured snippets, location</li>
-          <li>Advanced targeting by demographics, interests &amp; buying stage</li>
-          <li>Strategic bid management based on CPC, CTR &amp; conversion data</li>
-          <li>Visually optimised responsive display and video ad creatives</li>
-          <li>Conversion tracking: purchases, form submissions, app downloads</li>
-          <li>Ongoing performance monitoring with regular keyword adjustments</li>
-          <li>Landing page recommendations to maximise ad performance</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:var(--navy-mid);padding:5rem 4rem;">
-    <div class="section-inner" style="text-align:center;">
-      <p class="section-tag" style="justify-content:center;">Ready to Start?</p>
-      <h2 class="section-title" style="color:var(--white);text-align:center;">Let's build your<br><em>first campaign</em></h2>
-      <p style="color:rgba(255,255,255,0.4);font-size:0.97rem;margin:1rem auto 2rem;max-width:500px;">Contact us for a personalised quote tailored to your budget, industry, and growth objectives.</p>
-      <button class="btn-primary" onclick="showPage('home');setTimeout(()=>scrollTo('contact'),50)">Request a Quote →</button>
-    </div>
-  </section>
-
-  <footer>
-    <span class="footer-logo">Key<span>word</span> Social Media</span>
-    <div class="footer-links">
-      <a onclick="showPage('home')">Home</a>
-      <a onclick="showPage('social')">Social Media</a>
-      <a onclick="showPage('ppc')">Paid Marketing</a>
-    </div>
-    <span class="footer-copy">© 2024 Keyword Social Media. All rights reserved.</span>
-  </footer>
-</div><!-- /page-ppc -->
-
-<script>
-function showPage(name) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + name).classList.add('active');
-  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  const map = { home: 'nav-home', social: 'nav-social', ppc: 'nav-ppc' };
-  if (map[name]) document.getElementById(map[name]).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function scrollTo(id) {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function toggleFaq(el) {
-  const item = el.parentElement;
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!wasOpen) item.classList.add('open');
-}
-
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.contact-submit');
-  btn.textContent = 'Message Sent ✓';
-  btn.style.background = '#4a7c59';
-  btn.style.color = '#fff';
-  btn.disabled = true;
-}
-</script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

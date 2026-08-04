@@ -8,6 +8,11 @@ Static conversion-focused website for GitHub → Cloudflare Pages deployment.
 - `assets/css/styles.css`
 - `assets/js/main.js`
 - `assets/images/keyword-logo.svg`
+- `assets/images/print-and-wrap-hero.png`
+
+## Site sections
+
+The single-page application includes Home, Social Media, Paid Marketing, Web Development, Business Solutions, and Print & Branding views. Business Solutions groups the white-label cloud, hosting, cybersecurity, development, hardware, education, search and email catalogue into customer-friendly categories.
 
 ## Before publishing
 
@@ -30,4 +35,3 @@ For this static site:
 - Build command: leave blank
 - Build output directory: `/` or leave blank depending on Cloudflare prompt
 - Root directory: `/`
-

@@ -67,7 +67,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 function loadPageFromHash() {
   const page = window.location.hash.replace("#", "");
-  if (["home", "social", "paid", "web"].includes(page)) {
+  if (["home", "social", "paid", "web", "solutions", "print"].includes(page)) {
     showPage(page, false);
   }
 }

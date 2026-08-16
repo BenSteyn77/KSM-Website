@@ -907,6 +907,22 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
   .page-hero { min-height: 650px; background-position: 68% center; }
 }
 
+/* Transparent logo fit */
+.brand-mark,
+.site-footer .brand-mark {
+  overflow: visible;
+  background: transparent;
+  padding: 2px;
+}
+.brand-mark img,
+.site-footer .brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+}
+
 /* Corporate visual system — derived from the Keyword hummingbird mark */
 body { background: var(--white); letter-spacing: -.008em; }
 .section-pad { padding: 108px 0; }
@@ -1071,4 +1087,20 @@ blockquote { border-left-width: 2px; }
   .hero::before, .page-hero::before { background: linear-gradient(90deg, rgba(16,41,35,.98) 0%, rgba(16,41,35,.9) 58%, rgba(16,41,35,.48) 100%); }
   .hero-visual { display: none; }
   .page-hero { min-height: 650px; background-position: 68% center; }
+}
+
+/* Final transparent logo treatment */
+.brand-mark,
+.site-footer .brand-mark {
+  overflow: visible;
+  background: transparent;
+  padding: 2px;
+}
+.brand-mark img,
+.site-footer .brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
 }
